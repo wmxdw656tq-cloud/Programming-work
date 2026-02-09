@@ -16,7 +16,7 @@ def ask_tickets(remaining_tickets):
 
 # selling tickets
 def sell_tickets():
-    remaining_tickets = 20
+    remaining_tickets = 10
     buyers = 0  
 
     # Loop until all tickets are sold
