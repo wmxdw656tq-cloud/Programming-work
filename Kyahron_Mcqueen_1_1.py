@@ -17,7 +17,7 @@ def ask_tickets(remaining_tickets):
 # selling tickets
 def sell_tickets():
     remaining_tickets = 10
-    buyers = 0  
+    buyer_count = 0
 
     # Loop until all tickets are sold
     while remaining_tickets > 0:
@@ -28,14 +28,14 @@ def sell_tickets():
         # If the purchase is valid
         if tickets_bought > 0:
             remaining_tickets = remaining_tickets - tickets_bought
-            buyers = buyers + 1
+            buyer_count = buyer_count + 1
 
             print("Purchase successful!")
             print("Tickets left:", remaining_tickets)
 
     # All tickets sold
     print("\nAll tickets have been sold.")
-    print("Total number of buyers:", buyers)
+    print("Total number of buyers:", buyer_count)
 
 
 # Start the program
