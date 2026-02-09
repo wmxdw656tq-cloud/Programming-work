@@ -1,6 +1,6 @@
  #Ask the user how many tickets they want
 def ask_tickets(remaining_tickets):
-    tickets = int(input("How many tickets would you like to buy (1 to 4)? "))
+    tickets = int(input("How many tickets should I reserve for you? (1-4): "))
 
     # Check if the request is valid
     if tickets < 1 or tickets > 4:
