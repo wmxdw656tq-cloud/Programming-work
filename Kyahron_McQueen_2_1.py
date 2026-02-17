@@ -1,9 +1,7 @@
 
 def calculate_spam_score(message, spam_terms):
-    """
-    Scans the message for spam terms.
-    Returns: (score, matched_terms_dict)
-    """
+   # Scans the message for spam terms.  Returns: (score, matched_terms_dict)
+    
     message_lower = message.lower()
     score = 0
     matched_terms = {}
@@ -19,9 +17,7 @@ def calculate_spam_score(message, spam_terms):
 
 
 def rate_spam_likelihood(score):
-    """
-    Rates the likelihood of spam based on score.
-    """
+    #Rates the likelihood of spam based on score.
     if score == 0:
         return "Very unlikely to be spam"
     elif 1 <= score <= 3:
@@ -33,7 +29,7 @@ def rate_spam_likelihood(score):
     else:
         return "Very likely spam"
 
-
+#ideal terms to recognize
 def main():
     spam_terms = [
         "free", "winner", "congratulations", "act now", "limited time", "urgent",
@@ -46,7 +42,8 @@ def main():
     ]
 
     print("=== Spam Checker ===")
-    message = input("Enter your email message:\n")
+    #Adding user input 
+    message = input("Enter your email message:")
 
     score, matched_terms = calculate_spam_score(message, spam_terms)
     likelihood = rate_spam_likelihood(score)
@@ -54,13 +51,13 @@ def main():
     print("\n=== Results ===")
     print(f"Spam Score: {score}")
     print(f"Likelihood: {likelihood}")
-
+#if or else statement based on outcome
     if matched_terms:
-        print("\nSpam-triggering words/phrases found:")
+        print("Spam-triggering words/phrases found:")
         for term, count in matched_terms.items():
             print(f" - '{term}' occurred {count} time(s)")
     else:
-        print("\nNo spam terms were found in the message.")
+        print("No spam terms were found in the message.")
 
 
 if __name__ == "__main__":
