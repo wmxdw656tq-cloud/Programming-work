@@ -1,0 +1,40 @@
+from functools import reduce
+
+# Function to calculate total using reduce
+def get_total(expenses):
+    return reduce(lambda total, item: total + item["amount"], expenses, 0)
+
+# Function to find highest expense using reduce
+def get_highest(expenses):
+    return reduce(lambda a, b: a if a["amount"] > b["amount"] else b, expenses)
+
+# Function to find lowest expense using reduce
+def get_lowest(expenses):
+    return reduce(lambda a, b: a if a["amount"] < b["amount"] else b, expenses)
+
+
+# -------- Main Program --------
+expenses = []
+more = "yes"
+
+while more.lower() == "yes":
+    expense_type = input("Enter the type of expense (e.g., Rent, Food): ")
+    amount = float(input("Enter the amount for this expense: "))
+
+    expenses.append({"type": expense_type, "amount": amount})
+
+    more = input("Do you want to enter another expense? (yes/no): ")
+
+
+# ----- Display Summary -----
+if len(expenses) > 0:
+    total = get_total(expenses)
+    highest = get_highest(expenses)
+    lowest = get_lowest(expenses)
+
+    print("\n----- Expense Summary -----")
+    print(f"Total Expenses: ${total:.2f}")
+    print(f"Highest Expense: {highest['type']} (${highest['amount']:.2f})")
+    print(f"Lowest Expense: {lowest['type']} (${lowest['amount']:.2f})")
+else:
+    print("No expenses were entered.")
